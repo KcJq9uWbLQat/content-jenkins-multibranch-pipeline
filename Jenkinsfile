@@ -1,9 +1,9 @@
 pipeline {
   agent any
 
-//  environment {
-//    MAJOR_VERSION = 1
-//  }
+  environment {
+    MAJOR_VERSION = 1
+  }
 
   stages {
     stage('build') {
@@ -51,14 +51,14 @@ pipeline {
 //        }
 //      }
     }
-//    stage('Tagging the Release') {
-//      when {
-//        branch 'master'
-//      }
-//      steps {
-//        sh "git tag rectangle-${env.MAJOR_VERSION}.${BUILD_NUMBER}"
-//        sh "git push origin rectangle-${env.MAJOR_VERSION}.${BUILD_NUMBER}"
-//      }
+    stage('Tagging the Release') {
+      when {
+        branch 'master'
+      }
+      steps {
+        sh "git tag rectangle-${env.MAJOR_VERSION}.${BUILD_NUMBER}"
+        sh "git push origin rectangle-${env.MAJOR_VERSION}.${BUILD_NUMBER}"
+      }
 //      post {
 //        success {
 //          emailext(
@@ -69,6 +69,6 @@ pipeline {
 //          )
 //        }
 //      }
-//    }
+    }
   }
 }
